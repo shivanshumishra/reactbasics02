@@ -12,8 +12,8 @@ export default function ActionCard() {
       <Text style = {styles.headerText}>Blog Card</Text>
       <View style = {[styles.card, styles.elevatedCard]}>
         <View style = {styles.headingContainer}>
-            <Text style ={styles.headerText}>
-                Check my medium
+            <Text style ={styles.heading}>
+                What is android?
             </Text>
         </View>
         <Image
@@ -31,7 +31,12 @@ export default function ActionCard() {
             <TouchableOpacity
                 onPress={() => openWebsite('https://en.wikipedia.org/wiki/Android_(operating_system)')}
             >
-                <Text style ={{color : 'black', marginBottom : 8, padding : 8}}>Read More</Text>
+                <Text style ={styles.links}>Read More</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => openWebsite('https://medium.com/androiddevelopers')}
+            >
+                <Text style ={styles.links}>Medium Link</Text>
             </TouchableOpacity>
          </View>
       </View>
@@ -44,20 +49,31 @@ const styles = StyleSheet.create({
         padding : 8 
     },
     headerText : {
+        fontSize : 22,
+        fontWeight : 'bold',
+        color : 'white'
+    },
+    heading : {
         fontSize : 16,
         fontWeight : 'bold',
         color : 'black',
         padding : 6
     },
     elevatedCard : {
-       borderRadius : 8
+       borderRadius : 8,
+       elevation : 3,
+       shadowOffset : {height : 1, width : 1},
+       shadowColor : 'white',
+       shadowOpacity : 1
     },
     card : {
         margin : 8,
         backgroundColor : 'white'
     },
     headingContainer : {
-
+        flexDirection : 'row',
+        height : 40,
+        justifyContent : 'center'
     },
     cardImage : {
         height : 100,
@@ -70,5 +86,20 @@ const styles = StyleSheet.create({
     bodyContainer : {
         padding : 8
     },
-    footerContainer : {}
+    footerContainer : {
+        padding : 8,
+        flexDirection: 'row',
+        alignItems : 'center',
+        justifyContent: 'space-evenly'
+    },
+    links : {
+        color : 'white', 
+        marginBottom : 8, 
+        paddingVertical : 6,
+        paddingHorizontal: 12,
+        fontSize: 16,
+        backgroundColor : 'black',
+        elevation : 3,
+        borderRadius : 6
+    }
 })
